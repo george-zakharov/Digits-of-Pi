@@ -11,16 +11,16 @@
 class Determiner
 {
     /**
-     * Number of digits from user
-     * @var integer
-     */
-    private $number;
-
-    /**
      * Result for user
      * @var integer
      */
     public $result;
+
+    /**
+     * Status of the result
+     * @var bool
+     */
+    private $status;
 
     /**
      * Determiner constructor.
@@ -36,7 +36,29 @@ class Determiner
      */
     public function setDigits($number)
     {
-        $this->number = $number;
-        $this->result = round(pi(), $this->number);
+        if (is_numeric($number)) {
+            $this->result = round(pi(), $number, PHP_ROUND_HALF_DOWN);
+            $this->status = true;
+        } else {
+            $this->status = false;
+        }
+    }
+
+    /**
+     * Return result of operation.
+     * If input is number, it correctly returns PI.
+     * Else - special messages echoes.
+     *
+     * @return int, string
+     */
+    public function getResult()
+    {
+        if ($this->status === true) {
+            echo $this->result;
+        } elseif ($this->status === false) {
+            echo 'Enter digits, not special symbols or letters.';
+        } else {
+            echo 'Ooops! Something went wrong. Type your number again.';
+        }
     }
 }

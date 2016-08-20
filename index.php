@@ -13,7 +13,7 @@
     <h1 class="lead_header">PI Digits</h1>
     <!-- Form to enter number -->
     <form action="result.php" method="post" class="center_block">
-        <p>Enter your number
+        <p>Enter your number (max 13)
             <input type="text" size="15" name="number" title="Insert your number">
         </p>
         <input type="submit">

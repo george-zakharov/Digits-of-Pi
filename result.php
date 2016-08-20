@@ -1,9 +1,9 @@
 <?php
-error_reporting(E_ALL);
+//Require App file
 require 'app/determiner.php';
-
+//Set new object
 $determiner = new Determiner();
-
+//Check $_POST and set parameter to setDigits()
 if ($_POST['number']) {
     $determiner->setDigits($_POST['number']);
 }
@@ -20,7 +20,8 @@ if ($_POST['number']) {
 </head>
 <body>
     <h1 class="lead_header">Your result</h1>
-    <p class="center_block"><?= $determiner->result; ?></p>
+    <!-- Echo result -->
+    <p class="center_block"><?php $determiner->getResult(); ?></p>
     <a href="index.php"><p class="center_block">Go back</p></a>
 </body>
 </html>
