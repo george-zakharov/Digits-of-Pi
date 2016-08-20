@@ -1,0 +1,4 @@
+# Add default charsert
+AddDefaultCharset UTF-8;
+# Set php_value
+php_value precision 50;
